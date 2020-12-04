@@ -1,4 +1,5 @@
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:wbt_fluid/Configuration/TypoScript/Helper/DynamicContent.typoscript'
 
 page = PAGE
 page {
@@ -30,6 +31,14 @@ page {
          0 = EXT:wbt_fluid/Resources/Private/Layouts/Page/
          1 = {$page.fluidtemplate.layoutRootPath}
       }
+      dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+               levels = 1
+               includeSpacer = 0
+               as = mainnavigation
+            }
+         }
    }
 
    // Part 2: CSS file inclusion
